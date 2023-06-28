@@ -23,9 +23,14 @@ const put_params_bulding = (data) => {
  
 
     if (/Mobile/i.test(navigator.userAgent)) {
-        let params_mob = params.length > 0 ? `?${params}` : ''
-      let lnk = `https://scotty.morgana.mx/quote/first_step/${params_mob}`;
-      window.open(lnk, '_blank');
+      div_ifrm.innerHTML += `
+        <iframe 
+              src="https://scotty.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
+              style="width:100%; height:700px;"
+          >
+          </iframe>
+  
+        `
     } else {
     
       // El código se está ejecutando en un dispositivo de escritorio
@@ -33,7 +38,7 @@ const put_params_bulding = (data) => {
     div_ifrm.innerHTML += `
      <iframe 
             src="https://scotty.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
-            style="width:100%; height:550px;"
+            style="width:100%; height:500px;"
         >
         </iframe>
 
