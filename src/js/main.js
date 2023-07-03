@@ -25,20 +25,20 @@ const put_params_bulding = (data) => {
     if (/Mobile/i.test(navigator.userAgent)) {
       div_ifrm.innerHTML += `
         <iframe 
-              src="https://scotty.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
+              src="http://scotty.localhost:8003/lamudi/quote/first_step/${params.length>0 ? `?${params}`:''}"
               style="width:100%; height:700px;"
           >
           </iframe>
-  
-        `
+ 
+       `
     } else {
     
       // El código se está ejecutando en un dispositivo de escritorio
 
     div_ifrm.innerHTML += `
      <iframe 
-            src="https://scotty.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
-            style="width:100%; height:500px;"
+            src="http://scotty.localhost:8003/quote/first_step/${params.length>0 ? `?${params}`:''}"
+            style="width:100%; height:550px;"
         >
         </iframe>
 
