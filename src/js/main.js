@@ -16,9 +16,11 @@ function hash_text(text){
 }
 
 const put_params_bulding = (data) => {
-    let { username ,id, price, location, email, name, phone } = data;
+    let { username ,id, valueBulding, stateBulding, currency, nameBulding, subDom,urlBulding } = data;
+
+    let is_mobile = /Mobile/i.test(navigator.userAgent);
     let div_ifrm = document.getElementById(id);
-    let params = `${username?`username=${username}`:''}${price?`&price=${price}`:''}${location?`&location=${location}`:''}${email?`&email=${email}`:''}${name?`&name=${name}`:''}${phone?`&phone=${phone}`:''}`;
+    let params = `${username?`username=${username}`:''}${valueBulding?`&price=${valueBulding}`:''}${stateBulding?`&location=${stateBulding}`:''}${(is_mobile === false || is_mobile === true)?`&is_mobile=${is_mobile}`:''}${currency?`&currency=${currency}`:''}${nameBulding?`&nameBulding=${nameBulding}`:''}${subDom?`&subDom=${subDom}`:''}${urlBulding?`&urlBulding=${urlBulding}`:''}`;
     params = hash_text(params);
  
 
@@ -48,14 +50,17 @@ const put_params_bulding = (data) => {
 }
 
 window.onload = function() {
+    const ifm_mrg_data = document.getElementById('id_space_sb').dataset;
     const data = {
         username:'',
         id:'id_space_sb',
-        price:'750000',
-        location:'MEX', 
-        email:'',
-        name:'',
-        phone:''
+        valueBulding:ifm_mrg_data.valueBulding ? ifm_mrg_data.valueBulding : '0',
+        stateBulding:ifm_mrg_data.stateBulding ? ifm_mrg_data.stateBulding : 'CDMX', 
+        currency:ifm_mrg_data.currency  ? ifm_mrg_data.currency : 'MEX',
+        nameBulding: ifm_mrg_data.nameBulding ? ifm_mrg_data.nameBulding : '',
+        subDom: ifm_mrg_data.subDom ? ifm_mrg_data.subDom : '',
+        urlBulding: ifm_mrg_data.urlBulding ? ifm_mrg_data.urlBulding:'',
+
     }
    put_params_bulding(data)
   };
