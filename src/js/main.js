@@ -27,8 +27,8 @@ const put_params_bulding = (data) => {
     if (/Mobile/i.test(navigator.userAgent)) {
       div_ifrm.innerHTML += `
         <iframe 
-              src="https://novauat.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
-              style="width:100%; height:700px;"
+              src="http://nova.localhost:8003/quote/first_step/${params.length>0 ? `?${params}`:''}"
+              style="width:100%; height:750px;"
           >
           </iframe>
  
@@ -39,7 +39,7 @@ const put_params_bulding = (data) => {
 
     div_ifrm.innerHTML += `
      <iframe 
-            src="https://novauat.morgana.mx/quote/first_step/${params.length>0 ? `?${params}`:''}"
+            src="http://nova.localhost:8003/quote/first_step/${params.length>0 ? `?${params}`:''}"
             style="width:100%; height:550px;"
         >
         </iframe>
@@ -50,7 +50,13 @@ const put_params_bulding = (data) => {
 }
 
 window.onload = function() {
+    let card_contact = document.getElementById('anchor-form');
+    let des_form = document.getElementById('id_form_des')
     const ifm_mrg_data = document.getElementById('id_space_sb').dataset;
+    if (/Mobile/i.test(navigator.userAgent)) {
+      card_contact.style.display = 'none';
+      des_form.classList.add('w-des')
+    }
     const data = {
         username:'',
         id:'id_space_sb',
