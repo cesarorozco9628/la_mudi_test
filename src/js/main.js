@@ -53,10 +53,10 @@ window.onload = function() {
     let card_contact = document.getElementById('anchor-form');
     let des_form = document.getElementById('id_form_des')
     const ifm_mrg_data = document.getElementById('id_space_sb').dataset;
-    if (/Mobile/i.test(navigator.userAgent)) {
-      card_contact.style.display = 'none';
-      des_form.classList.add('w-des')
-    }
+  //  if (/Mobile/i.test(navigator.userAgent)) {
+    //  card_contact.style.display = 'none';
+    //  des_form.classList.add('w-des')
+ //   }
     const data = {
         username:'',
         id:'id_space_sb',
